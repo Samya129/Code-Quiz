@@ -28,13 +28,13 @@ h2 {
 
 .container {
     width: 100vw;
-    height: 100vw;
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 80 rem;
+    max-width: 70 rem;
     margin: auto;
-    padding: 2 rem;
+    padding: 2px;
 }
 .flex-column {
     display: flex;
@@ -63,7 +63,7 @@ h2 {
     margin-bottom: 1rem;
     text-decoration: none;
     background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(100,68,68,1) 39%, rgba(0,212,255,1) 100%);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(100, 68, 68) 39%, rgb(113, 221, 243) 100%);
     color: white;
     border-radius: 4px;
 }
@@ -80,4 +80,12 @@ cursor: not-allowed;
 box-shadow: none;
 transform: none;
 }
+
+#counter{
+    text-align: right;
+    font-size: 3.0rem;
+    color: white;
+    padding: 2px;
+}
+   
 

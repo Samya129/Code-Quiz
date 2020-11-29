@@ -16,7 +16,7 @@ h1{
     font-size: 5.4rem;
     color: white;
 }
-p{
+p,#quizDir {
     font-size: 3.5rem;
     color: white;
 }

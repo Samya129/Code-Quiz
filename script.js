@@ -1,63 +1,87 @@
 var body = document.body
 
 //Create all necessary elements
-const quizDir = document.getElementById('quizDir')
 const startBtn = document.getElementById('startBtn')
 const submitBtn = document.getElementById('submitBtn')
 const highscoresBtn = document.getElementById('highscoresBtn')
 
 const questionsDiv = document.getElementById('questions')
-const choicesDiv = document.getElementById('choices')
-const timerDiv = document.getElementById('timer')
+const answersBtn = document.getElementById('answersBtn')
+const nextBtn = document.getElementById('nextBtn')
+const timer = document.getElementById('timer')
 const counterDiv = document.getElementById('counter')
 let currentQuestion = 0
 
+//Timer and counter Section
+document.getElementById("startBtn").addEventListener("click", function(){
+  var timeleft = 120;
+
+  var downloadTimer = setInterval(function timer(){
+  document.getElementById("counter").innerHTML = timeleft + " seconds remaining";
+  
+  timeleft -= 1;
+  if(timeleft <= 0){
+      clearInterval(downloadTimer);
+      document.getElementById("counter").innerHTML = "No more time remaining";
+  //if answer is wrong -
+  }
+
+  }, 2000);
+  
+});
+
 //If start Quiz button is clicked
 startBtn.onclick = () => {
-  document.getElementById('home').style.display = 'none'
-  quizDir.style.display = 'none'
+  document.getElementById('introPage').style.display = 'none'
+  
 
-  // Make question
+  // Make a question
   var h1Tag = document.createElement('h1')
+
+  //h1Tag.setAttribute('class', question(s))
   h1Tag.textContent = questions[currentQuestion].q
-  document.querySelector('.container').appendChild(h1Tag)
+  document.querySelector('#questionContainer').appendChild(h1Tag)
 
   console.log(questions[currentQuestion].answers)
 
-  // Make buttons 
+  // Make buttons and array of those answers to the current question
+  answersBtn.onclick = function() {
+    // We start the quiz with a score of 0.
+      var score = 0;
+      var response = window.q(questions[i].answers);
+      if (response === questions[i].correctAnswer){
+      score++;
+      alert("Correct!");
+      } else {
+    var timeDeduction = timeleft - 8
+    alert("WRONG!");
+    }
+  //Final score total
+  alert("You got " + score + "/" + questions.length);
+    
+  }
+
   for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
-    var questionButtons = document.createElement('a')
+    var questionButtons = document.createElement('answersBtn')
     questionButtons.setAttribute('class', 'btn')
     questionButtons.textContent = questions[currentQuestion].answers[i]
-    document.querySelector('.container').appendChild(questionButtons)
+    document.querySelector('#questionContainer').appendChild(questionButtons)
+    answersList = document.createElement('ul');
+    listItem = document.createElement('li')
+    //listItem.innerHTML = listData(answers.length);??
   }
 }
-//highscoresBtn.onclick = ()=>{
-//document.getElementById("home").style.display="none";
-//var inputTag = document.createElement("input");
-//inputTag.textContent = questions[currentChoices].A
-//document.querySelector(".container").append(pTag)
-//}
 
-//create element for buttons
-//append
 
-//console.log(startBtn)
-//Set text content of relevant elements
-//quizDir.textContent =
-  //'Directions: Try to answer the following code-related questions within the time limit given. Keep in mind that if you get a question incorrect, your score time will be deducted by five seconds. Good luck!'
-//document.querySelector('.container').appendChild(quizDir)
+highscoresBtn.onclick = ()=> {
+  getElementById('introPage').style.display = 'none'
+  //Make highscores input sheet
 
-//Append all of our elements to allow it's appearance on the page
-//body.appendChild[1](quizDiv);
+}
 
 //Event Listeners for buttons
-//startBtn.addEventListener('click', )
-//nextBtn.addEventListener('click', )
 //submitBtn.addEventListener('click', finalResults)
 //highscoresBtn.addEventListener('click', )
-
-//function finalResults(){}
 
 // The array of questions for this coding quiz
 let questions = [
@@ -69,7 +93,7 @@ let questions = [
       'console.log',
       'a variable with arrays'
     ],
-    rAnswer: 'A' //console.log(answers[0])
+    correctAnswer: 'a function containing a property' 
   },
   {
     q:
@@ -80,7 +104,7 @@ let questions = [
         'Create a set of elements',
         'All of the above',
     ],
-    rAnswer: 'D'
+    correctAnswer: 'All of the above'
   },
   {
     q:
@@ -91,7 +115,7 @@ let questions = [
         'document.querySelectorAll();',
         'parseFloat();',
     ],
-    rAnswer: 'B'
+    correctAnswer: 'event.stopPropagation();'
   },
   {
     q: 'Which of the following is NOT considered a semantic element?',
@@ -101,7 +125,7 @@ let questions = [
         '<span>',
         '<mark>',
     ],
-    rAnswer: 'C'
+    correctAnswer: '<span>'
   },
   {
     q: 'How are classes and ids coded into a CSS file?',
@@ -111,7 +135,7 @@ let questions = [
         '.name / .name',
         '#name / #name',
     ],
-    rAnswer: 'A'
+    correctAnswer: '.name / #name'
   },
   {
     q:
@@ -122,7 +146,7 @@ let questions = [
         'mv',
         'touch',
     ],
-    rAnswer: 'D'
+    correctAnswer: 'touch'
   },
 
   {
@@ -134,7 +158,7 @@ let questions = [
         'Flow',
         'An active state',
     ],
-    rAnswer: 'C'
+    correctAnswer: 'Flow'
   },
   {
     q: 'How should you format a grid when using Bootstrap?',
@@ -144,23 +168,15 @@ let questions = [
         'Columns, Containers, Rows',
         'Rows, Containers, Columns',
     ],
-    rAnswer: 'B'
+    correctAnswer: 'Containers, Rows, Columns'
   }
 ]
-
-// We start the quiz with a score of 0.
-var score = 0
-
-// Loop over every question object in the questions array
-//   for (var i = 0; i < questionsDiv.length; i++) {
-//     // Display current question to user and allow them to select from the choices given
-//     var rAnswer = confirm(questionsDiv[i].q);
-
-//     // Compare answers
-//     /*if Wrong deduct time and play sound
+//questions[currentQuestion].answers[i]
+//questions[currentQuestion].answers.length; i++
+//     /*if Wrong deduct time 
 //     */
 
-//     if (rAnswer === questions[i].rAnswer) {
+//     if (correctAnswer === questions[i].correctAnswer) {
 //       // Increase score
 //       score++;
 //       alert("Correct!");
@@ -170,29 +186,7 @@ var score = 0
 //       time--;
 //     }
 //   }
-
-// Show total at end
-//alert("You got " + score + "/" + questionsDiv.length);
-
-//html with timer starting at 0
-//timer should start with start button
 //compare users choice to the actual answer
-//counter?? the number that is changing
 //highscores sheet and save with local storage
-//timer and if else statement for time deduction
-
-document.getElementById("startBtn").addEventListener("click", function(){
-    var timeleft = 120;
-
-    var downloadTimer = setInterval(function timerDiv(){
-    document.getElementById("counter").innerHTML = timeleft + "seconds remaining";
-    
-    timeleft -= 1;
-    if(timeleft <= 0){
-        clearInterval(downloadTimer);
-        document.getElementById("counter").innerHTML = "No more time remaining";
-    }
-
-    }, 2000);
-    console.log(countdown);
-});
+//document.addEventListener("click", function showResults(){
+//}

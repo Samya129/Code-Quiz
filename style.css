@@ -16,17 +16,13 @@ h1{
     font-size: 5.4rem;
     color: white;
 }
-p,#quizDir {
+
+p{
     font-size: 3.5rem;
     color: white;
 }
 
-h2 {
-    font-size: 4.2rem;
-    margin: 4rem;
-}
-
-.container {
+.introContainer, #questionContainer {
     width: 100vw;
     height: 500px;
     display: flex;
@@ -34,8 +30,9 @@ h2 {
     align-items: center;
     max-width: 70 rem;
     margin: auto;
-    padding: 2px;
+    padding: 10px;
 }
+
 .flex-column {
     display: flex;
     flex-direction: column;
@@ -45,12 +42,7 @@ h2 {
     justify-content: center;
     align-items: center;
 }
-.justify-center {
-    justify-content: center;
-}
-.text-center {
-    text-align: center;
-}
+
 .hidden{
     display: none;
 }
@@ -66,6 +58,7 @@ h2 {
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(100, 68, 68) 39%, rgb(113, 221, 243) 100%);
     color: white;
     border-radius: 4px;
+    display: inline-block;
 }
 
 .btn:hover {
@@ -86,6 +79,4 @@ transform: none;
     font-size: 3.0rem;
     color: white;
     padding: 2px;
-}
-   
-
+}   

@@ -8,24 +8,26 @@
 </head>
 <body>
     <div  id="counter">
-    <h3>Time Remaining: <span id="timer">120</span></h3>
+    <h3 class="timer">Time Remaining: <span id="timer">120</span></h3>
     </div>
-    <div class="container">
-        <div id="home" class="flex-column flex-center">
-            <h1> Coding Quiz Challenge</h1>
-            <div id="quizDir"></div>
-            <p>Directions: Try to answer the following code-related questions within the time limit given. Keep in mind that if you get a question incorrect, your score time will be deducted by eight seconds. Good luck!</p>
+    <div class="introContainer">
+        <div id="introPage" class="flex-column flex-center">
+            <h1 class="quizTitle"> Coding Quiz Challenge</h1>
+            <p class="directions">Directions: Try to answer the following code-related questions within the time limit given. Keep in mind that if you get a question incorrect, your score time will be deducted by eight seconds. Good luck!</p>
             <br>
             <a id= "startBtn" class="btn">Start</a>
-            <a  id="highscoresBtn" class="btn">High Scores</a>
-            
+            <a  id="highscoresBtn" class="btn">High Scores</a>  
         </div>
     </div>
-  
-    
+
+    <div id="questionContainer">
         <div id="questions"></div>
-        <a id="answers"></a>
-    <div id="submit-button"></div>
+        <a id="answersBtn" class="btn"></a>
+        <a id="nextBtn" class="btn"></a>
+        <a id="submitBtn" class="btn"></a>
+    </div>
+
+    
 
     <script src="./script.js"></script>
 </body>

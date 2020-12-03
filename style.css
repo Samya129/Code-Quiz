@@ -17,7 +17,7 @@ h1{
     color: white;
 }
 
-p{
+p, body{
     font-size: 3.5rem;
     color: white;
     margin: 20px;
@@ -49,6 +49,7 @@ p{
 }
 
 .btn, button {
+    float: right;
     font-size: 2.4rem;
     padding: 2rem 0;
     width: 30rem;
@@ -61,13 +62,40 @@ p{
     border-radius: 4px;
 }
 
-.btn:hover, button {
+.btn:hover, button, input:hover {
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgb(252, 164, 2);
     transition: transform 150ms;
     transform: scale(1.03);
 }
 
+.input-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  label {
+    color: white;
+  }
+  input {
+    background-color: white;
+    border-radius: 2px;
+    border-width: 0;
+    color:black;
+    font-size: 1em;
+    height: 45px;
+    line-height: 20px;
+    margin: 0;
+    margin-top: 10px;
+    max-width: 100%;
+    padding: 8px 8px 8px 8px;
+    transition-delay: 0s, 0s;
+    transition-duration: 0.2s, 0.2s;
+    transition-property: background-color, color;
+    transition-timing-function: ease, ease;
+    vertical-align: middle;
+    width: 100%;
+  }
 .btn[disabled]:hover, button {
 cursor: not-allowed;
 box-shadow: none;

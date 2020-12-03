@@ -27,3 +27,27 @@ function renderLastRegistered() {
   //end of the storage added
 }
 
+HighscoreButton.addEventListener("click", function(event) {
+  event.preventDefault();
+    //user information for submission
+  var initials = document.querySelector("#initials").value.trim();
+  var highscore = document.querySelector("#highscore").value.trim();
+    //validation
+  if (initials === "") {
+    displayMessage("error", "Initials cannot be blank");
+  } else if (highscore === "") {
+    displayMessage("error", "Highscore cannot be blank");
+  } else {
+    displayMessage("success", "Your initials and highscore has been saved");
+
+  // Save initials and highscore to localStorage and render a list of previous scores list
+  //first argument part is a string, second part is the variable. Stringify step 2 
+  localStorage.setItem("initials", JSON.stringify(initials));
+  localStorage.setItem("highscore", JSON.stringify(highscore));
+  renderLastRegistered();  
+  //end of storage added
+  //Note:Local storage can only handle strings
+}
+});
+
+

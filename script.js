@@ -139,12 +139,12 @@ startBtn.onclick = () => {
           showAnswers()
           checkAnswer()
         } else {
-          alert("Game over. You've got " + score + "/" + questions.length + "questions correct!");
+          alert("Quiz is over. You've got " + score + "/" + questions.length + "questions correct!");
           //gameOver()
         }
       }
 
-      //Create a gameOver function that hides the questions and answer buttons, alerts the user that it is game over, and then displays their final score and an input field to put their initials with a submit button, when user clicks submit, this should set the initials and scores to the local storage
+      //Create a gameOver function that hides the questions and answer buttons, alerts the user that it is game over, and then displays their final score and an input field to put their initials with a submit button, when user clicks submit, this should set the initials and stores to the local storage
 
       function gameOver () {}
     })

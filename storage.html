@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="" /> 
+    <title>High Scores Form</title>
+  </head>
+  <body>
+    <div class="clearfix">
+      <div class="card">
+        <h1>High Scores Page</h1>
+        <form method="POST">
+          <div class="input-group">
+            <label for="initials">Initials</label>
+            <input type="text" name="initials" id="initials" placeholder="SJ" />
+          </div>
+          <div class="input-group">
+            <label for="highscore">Highscore</label>
+            <input type="highscore" name="highscore" id="highscore" placeholder="4" />
+          </div>
+          <div id="msg"></div>
+          <button id="sign-up" class="btn">Add</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Last Registered User:</h2>
+        <p><strong>Initials:</strong> <span id="user-initials"></span></p>
+        <p><strong>Highscore:</strong> <span id="user-highscore"></span></p>
+      </div>
+    </div>
+    <script src=""></script>
+  </body>
+</html>

@@ -6,84 +6,13 @@ const submitBtn = document.getElementById('submitBtn')
 const highscoresBtn = document.getElementById('highscoresBtn')
 
 const questionsDiv = document.getElementById('questions')
-const answersBtn = document.getElementById('answersBtn')
-const nextBtn = document.getElementById('nextBtn')
 const timer = document.getElementById('timer')
 const counterDiv = document.getElementById('counter')
+var introPageDiv = document.getElementById('introPage')
 let currentQuestion = 0
+// We start the quiz with a score of 0.
+var score = 0;
 
-//Timer and counter Section
-document.getElementById("startBtn").addEventListener("click", function(){
-  var timeleft = 120;
-
-  var downloadTimer = setInterval(function timer(){
-  document.getElementById("counter").innerHTML = timeleft + " seconds remaining";
-  
-  timeleft -= 1;
-  if(timeleft <= 0){
-      clearInterval(downloadTimer);
-      document.getElementById("counter").innerHTML = "No more time remaining";
-  //if answer is wrong -
-  }
-
-  }, 2000);
-  
-});
-
-//If start Quiz button is clicked
-startBtn.onclick = () => {
-  document.getElementById('introPage').style.display = 'none'
-  
-
-  // Make a question
-  var h1Tag = document.createElement('h1')
-
-  //h1Tag.setAttribute('class', question(s))
-  h1Tag.textContent = questions[currentQuestion].q
-  document.querySelector('#questionContainer').appendChild(h1Tag)
-
-  console.log(questions[currentQuestion].answers)
-
-  // Make buttons and array of those answers to the current question
-  answersBtn.onclick = function() {
-    // We start the quiz with a score of 0.
-      var score = 0;
-      var response = window.q(questions[i].answers);
-      if (response === questions[i].correctAnswer){
-      score++;
-      alert("Correct!");
-      } else {
-    var timeDeduction = timeleft - 8
-    alert("WRONG!");
-    }
-  //Final score total
-  alert("You got " + score + "/" + questions.length);
-    
-  }
-
-  for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
-    var questionButtons = document.createElement('answersBtn')
-    questionButtons.setAttribute('class', 'btn')
-    questionButtons.textContent = questions[currentQuestion].answers[i]
-    document.querySelector('#questionContainer').appendChild(questionButtons)
-    answersList = document.createElement('ul');
-    listItem = document.createElement('li')
-    //listItem.innerHTML = listData(answers.length);??
-  }
-}
-
-
-highscoresBtn.onclick = ()=> {
-  getElementById('introPage').style.display = 'none'
-  //Make highscores input sheet
-
-}
-
-//Event Listeners for buttons
-//submitBtn.addEventListener('click', finalResults)
-//highscoresBtn.addEventListener('click', )
-
-// The array of questions for this coding quiz
 let questions = [
   {
     q: 'A method can be defined as... ',
@@ -171,21 +100,111 @@ let questions = [
     correctAnswer: 'Containers, Rows, Columns'
   }
 ]
-//questions[currentQuestion].answers[i]
-//questions[currentQuestion].answers.length; i++
-//     /*if Wrong deduct time 
-//     */
 
-//     if (correctAnswer === questions[i].correctAnswer) {
-//       // Increase score
-//       score++;
-//       alert("Correct!");
-//     }
-//     else {
-//       alert("WRONG!"); // deduct time --
-//       time--;
-//     }
-//   }
+let lastQuestion = questions.length - 1;
+
+//Timer and counter Section
+document.getElementById("startBtn").addEventListener("click", function(){
+  var timeleft = 120;
+
+  var downloadTimer = setInterval(function timer(){
+  document.getElementById("counter").innerHTML = timeleft + " seconds remaining";
+  
+  timeleft -= 1;
+  if(timeleft <= 0){
+      clearInterval(downloadTimer);
+      document.getElementById("counter").innerHTML = "No more time remaining";
+  //if answer is wrong -
+  }
+
+  }, 2000);
+  
+});
+
+//If start Quiz button is clicked
+startBtn.onclick = () => {
+introPageDiv.style.display = "none"
+showQuestion()
+showAnswers()
+checkAnswer();
+  // Make a question
+
+function checkAnswer() {
+  const answersBtn = document.querySelectorAll('.answersBtn')
+  answersBtn.forEach(function(button){
+    button.onclick = function() {
+      console.log("This works??")
+             var response = this.getAttribute("data-answers")
+             if (response === questions[currentQuestion].correctAnswer){ 
+            score++;
+            alert("Correct!");
+            } else {
+          //var timeDeduction = 8;
+          //newScore = timeleft - timeDeduction
+          alert("WRONG!");
+          }
+
+          if (currentQuestion < lastQuestion){
+            console.log("Next question!")
+          currentQuestion++;
+          showQuestion()
+          showAnswers()
+          checkAnswer()
+        } else {
+          alert("Game over")
+          //gameOver()
+        }
+        //Final score total
+        //alert("You got " + score + "/" + questions.length);
+          
+         }
+
+         //Create a gameOver function that hides the questions and answer buttons, alerts the user that it is game over, and then displays their final score and an input field to put their initials, this should also set the initials and scores to the local storeage
+
+         function gameOver() {
+           
+         }
+        
+         
+  })
+}
+  function showQuestion(){
+    var h1Tag = document.createElement('h1')
+  document.getElementById("question").textContent = ""
+  document.getElementById("choices").innerHTML = ""
+    h1Tag.textContent = questions[currentQuestion].q
+    document.querySelector('#question').appendChild(h1Tag)
+  
+  
+    
+  
+  }
+  
+  function showAnswers(){
+    console.log("Showing answers")
+    for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
+      var questionButtons = document.createElement('button')
+      questionButtons.setAttribute('class', 'btn answersBtn')
+      questionButtons.setAttribute("data-answers", questions[currentQuestion].answers[i])
+      questionButtons.textContent = questions[currentQuestion].answers[i]
+      document.querySelector('#choices').appendChild(questionButtons)
+    }
+  }
+  }
+highscoresBtn.onclick = ()=> {
+  getElementById('introPage').style.display = 'none'
+
+  // Make a highscore page heading
+  var h1Tag = document.createElement('h1')
+
+  //h1Tag.setAttribute('class', question(s))
+  //h1Tag.textContent = questions[currentQuestion].q
+  //document.querySelector('.introContainer').appendChild(h1Tag)
+}
+//Event Listeners for buttons
+//submitBtn.addEventListener('click', finalResults)
+//highscoresBtn.addEventListener('click', )
+
 //compare users choice to the actual answer
 //highscores sheet and save with local storage
 //document.addEventListener("click", function showResults(){

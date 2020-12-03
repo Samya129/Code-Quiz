@@ -20,11 +20,12 @@ h1{
 p{
     font-size: 3.5rem;
     color: white;
+    margin: 20px;
 }
 
-.introContainer, #questionContainer {
+.introContainer, #introPage {
     width: 100vw;
-    height: 500px;
+    height: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +48,7 @@ p{
     display: none;
 }
 
-.btn {
+.btn, button {
     font-size: 2.4rem;
     padding: 2rem 0;
     width: 30rem;
@@ -58,17 +59,16 @@ p{
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(100, 68, 68) 39%, rgb(113, 221, 243) 100%);
     color: white;
     border-radius: 4px;
-    display: inline-block;
 }
 
-.btn:hover {
+.btn:hover, button {
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgb(252, 164, 2);
     transition: transform 150ms;
     transform: scale(1.03);
 }
 
-.btn[disabled]:hover {
+.btn[disabled]:hover, button {
 cursor: not-allowed;
 box-shadow: none;
 transform: none;

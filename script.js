@@ -12,7 +12,8 @@ var introPageDiv = document.getElementById('introPage')
 let currentQuestion = 0
 // We start the quiz with a score of 0.
 var score = 0;
-var timeDeduction = 8;
+var timeleft = 120
+var timeDeduction = 25;
 
 let questions = [
   {
@@ -106,8 +107,6 @@ let lastQuestion = questions.length - 1;
 
 //Timer and counter Section
 document.getElementById("startBtn").addEventListener("click", function(){
-  var timeleft = 120;
-
   var downloadTimer = setInterval(function timer(){
   document.getElementById("counter").innerHTML = timeleft + " seconds remaining";
   
@@ -151,11 +150,9 @@ function checkAnswer() {
           showAnswers()
           checkAnswer()
         } else {
-          alert("Game over")
+          alert("Game over. You've got " + score + "/" + questions.length + "questions correct!");
           //gameOver()
         }
-        //Final score total
-        //alert("You got " + score + "/" + questions.length);
           
          }
 

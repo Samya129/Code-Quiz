@@ -133,7 +133,7 @@ function checkAnswer() {
   const answersBtn = document.querySelectorAll('.answersBtn')
   answersBtn.forEach(function(button){
     button.onclick = function() {
-      console.log("This works??")
+      //console.log("This works??")
              var response = this.getAttribute("data-answers")
              if (response === questions[currentQuestion].correctAnswer){ 
             score++;
@@ -159,7 +159,7 @@ function checkAnswer() {
           
          }
 
-         //Create a gameOver function that hides the questions and answer buttons, alerts the user that it is game over, and then displays their final score and an input field to put their initials, this should also set the initials and scores to the local storeage
+         //Create a gameOver function that hides the questions and answer buttons, alerts the user that it is game over, and then displays their final score and an input field to put their initials with a submit button, when user clicks submit, this should set the initials and scores to the local storage
 
          function gameOver() {
            
@@ -181,7 +181,7 @@ function checkAnswer() {
   }
   
   function showAnswers(){
-    console.log("Showing answers")
+    //console.log("Showing answers")
     for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
       var questionButtons = document.createElement('button')
       questionButtons.setAttribute('class', 'btn answersBtn')

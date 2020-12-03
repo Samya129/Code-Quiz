@@ -12,6 +12,7 @@ var introPageDiv = document.getElementById('introPage')
 let currentQuestion = 0
 // We start the quiz with a score of 0.
 var score = 0;
+var timeDeduction = 8;
 
 let questions = [
   {
@@ -124,10 +125,9 @@ document.getElementById("startBtn").addEventListener("click", function(){
 //If start Quiz button is clicked
 startBtn.onclick = () => {
 introPageDiv.style.display = "none"
-showQuestion()
-showAnswers()
+showQuestion();
+showAnswers();
 checkAnswer();
-  // Make a question
 
 function checkAnswer() {
   const answersBtn = document.querySelectorAll('.answersBtn')
@@ -139,9 +139,9 @@ function checkAnswer() {
             score++;
             alert("Correct!");
             } else {
-          //var timeDeduction = 8;
-          //newScore = timeleft - timeDeduction
           alert("WRONG!");
+          timeleft = timeleft - timeDeduction;
+          timeleft.textContent = timeleft
           }
 
           if (currentQuestion < lastQuestion){
@@ -201,11 +201,8 @@ highscoresBtn.onclick = ()=> {
   //h1Tag.textContent = questions[currentQuestion].q
   //document.querySelector('.introContainer').appendChild(h1Tag)
 }
-//Event Listeners for buttons
-//submitBtn.addEventListener('click', finalResults)
-//highscoresBtn.addEventListener('click', )
 
-//compare users choice to the actual answer
+//highscoresBtn.addEventListener('click', )
 //highscores sheet and save with local storage
 //document.addEventListener("click", function showResults(){
 //}

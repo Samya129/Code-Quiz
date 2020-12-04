@@ -51,3 +51,33 @@ HighscoreButton.addEventListener("click", function(event) {
 });
 
 
+
+
+
+
+//delete later cause repetitive.. need list and display of users
+const highscoresBtn = document.getElementById('highscoresBtn')
+
+var highscoresInput = document.querySelector("#highscores-name");
+var highscoresForm = document.querySelector("#highscores-form");
+var highscoresList = document.querySelector("#highscores-list");
+
+var highscores = [];
+
+init();
+
+function renderHighscores() {
+    highscoresList.innerHTML = "";
+    highscoresList.textContent.highscores.length;
+
+    //Render a list for each person's highscore
+    for (var i = 0; i < highscores.length; i++){
+        var highscore = highscores[i];
+
+        var li = document.createElement("li");
+        li.textContent = highscore;
+
+        li.setAttribute("data-index" , i);
+
+    }
+}

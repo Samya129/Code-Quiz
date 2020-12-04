@@ -176,6 +176,7 @@ highscoresBtn.onclick = () => {
 
   // Make a highscore page heading
   var h1Tag = document.createElement('h1')
+  location.href = "./storage.html";
 
   //h1Tag.setAttribute('class', question(s))
   //h1Tag.textContent = questions[currentQuestion].q

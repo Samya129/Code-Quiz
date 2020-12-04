@@ -13,7 +13,9 @@
 Applications used:
 
   -Javascript
+  
   -CSS
+  
   -HTML
 
 Source Links:
@@ -24,7 +26,10 @@ Source Links:
 Table of Contents:
 
   Installation: VSCode
+  
   Usage: None 
+  
   Credits: None
+  
   License: None
   

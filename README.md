@@ -34,5 +34,6 @@ Table of Contents:
   
   License: None
   
-  ![GitHub Logo] (/images/MainPage.png) Format: ![Deployed Quiz Demo Image] (https://github.com/Samya129/Code-Quiz/blob/main/Images/MainPage.png)(https://github.com/Samya129/Code-Quiz/blob/main/Images/HighScoresPage.png)
+  ![GitHub Logo](/images/MainPage.png) Format:![Deployed Quiz Demo Image](https://github.com/Samya129/Code-Quiz/blob/main/Images/MainPage.png)
   
+![GitHub Logo](/images/MainPage.png) Format:![Deployed Quiz Demo Image](https://github.com/Samya129/Code-Quiz/blob/main/Images/HighScoresPage.png)
